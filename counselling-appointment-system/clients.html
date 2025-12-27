@@ -17,23 +17,23 @@
   <style>
     /* General Page Styles */
     body {
-      background-color: #FFFFFF; /* Clean white background */
+      background-color: #FFFFFF;
       font-family: 'Roboto', sans-serif;
-      color: #333333; /* Dark grey text for readability */
+      color: #333333;
     }
 
     /* Navigation Bar */
     .navbar {
-      background-color: #FFFFFF; /* White navbar */
+      background-color: #FFFFFF;
     }
 
     .navbar-nav .nav-link {
-      font-weight: bold; /* Bold text for navigation */
-      color: #333333; /* Dark text color */
+      font-weight: bold;
+      color: #333333;
     }
 
     .navbar-nav .nav-link.active {
-      background-color: #bddeb1; /* Soft green for active menu item */
+      background-color: #bddeb1;
       color: #FFFFFF;
     }
 
@@ -43,13 +43,13 @@
     }
 
     .nav-link:hover {
-      color: #bddeb1; /* Hover color */
+      color: #bddeb1;
     }
 
     /* Sidebar */
     .sidebar {
-      background-color: #FFFFFF; /* White sidebar */
-      border-right: 1px solid #f1f1f1; /* Subtle border */
+      background-color: #FFFFFF;
+      border-right: 1px solid #f1f1f1;
     }
 
     .sidebar .nav-link {
@@ -77,12 +77,12 @@
     }
 
     tr:nth-child(even) td {
-      background-color: #f9f9f9; /* Subtle alternating row colors */
+      background-color: #f9f9f9;
     }
 
     /* Footer */
     footer {
-      background-color: #bddeb1; /* Footer background soft green */
+      background-color: #bddeb1;
       color: white;
       padding: 30px 0;
       text-align: center;
@@ -107,6 +107,21 @@
       color: #333333;
     }
 
+    /* Modal Styles */
+    .modal-content {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+    }
+
+    .modal-header {
+      background-color: #bddeb1;
+      color: white;
+      font-weight: bold;
+    }
+
+    .modal-footer {
+      background-color: #f9f9f9;
+    }
   </style>
 </head>
 
@@ -161,6 +176,11 @@
       <div class="container-fluid p-4">
         <h1 class="fw-bold mb-4">Clients</h1>
 
+        <!-- Add Client Button -->
+        <button class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#addClientModal">
+          <i class="bi bi-plus-circle me-2"></i> Add Client
+        </button>
+
         <!-- Table for Clients -->
         <table class="table table-striped">
           <thead>
@@ -213,10 +233,45 @@
               <td>Kelvin Tan</td>
               <td><a href="mailto:kelvintan@gmail.com">kelvintan@gmail.com</a></td>
               <td>2</td>
-              <td><span class="badge bg-danger">Blocked</span></td>
+              <td><span class="badge bg-danger">Inactive</span></td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding Client -->
+  <div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClientModalLabel">Add New Client</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="clientName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="clientName" placeholder="Enter full name" required>
+            </div>
+            <div class="mb-3">
+              <label for="clientEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="clientEmail" placeholder="Enter email" required>
+            </div>
+            <div class="mb-3">
+              <label for="clientStatus" class="form-label">Status</label>
+              <select class="form-select" id="clientStatus" required>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Add Client</button>
+        </div>
       </div>
     </div>
   </div>
