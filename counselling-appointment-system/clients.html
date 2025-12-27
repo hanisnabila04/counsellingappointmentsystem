@@ -122,6 +122,33 @@
     .modal-footer {
       background-color: #f9f9f9;
     }
+
+    /* New Section Styles */
+    .client-section {
+      background-color: #f7f7f7;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-notes-section {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-notes-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
   </style>
 </head>
 
@@ -193,50 +220,62 @@
             </tr>
           </thead>
           <tbody>
+            <!-- Sample Clients -->
             <tr>
               <td>CL001</td>
-              <td>Nur Aina</td>
+              <td>Nur Aina <img src="https://via.placeholder.com/30" class="rounded-circle ms-2" alt="Aina's Picture"></td>
               <td><a href="mailto:aina@gmail.com">aina@gmail.com</a></td>
               <td>2</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
             <tr>
               <td>CL002</td>
-              <td>Jason Lim</td>
+              <td>Jason Lim <span>JL</span></td>
               <td><a href="mailto:jasonlim@gmail.com">jasonlim@gmail.com</a></td>
               <td>1</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
             <tr>
               <td>CL003</td>
-              <td>Siti Mariam</td>
+              <td>Siti Mariam <img src="https://via.placeholder.com/30" class="rounded-circle ms-2" alt="Mariam's Picture"></td>
               <td><a href="mailto:siti.mariam@gmail.com">siti.mariam@gmail.com</a></td>
               <td>4</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
             <tr>
               <td>CL004</td>
-              <td>Daniel Wong</td>
+              <td>Daniel Wong <span>DW</span></td>
               <td><a href="mailto:danielwong@gmail.com">danielwong@gmail.com</a></td>
               <td>3</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
             <tr>
               <td>CL005</td>
-              <td>Amira Sofea</td>
+              <td>Amira Sofea <img src="https://via.placeholder.com/30" class="rounded-circle ms-2" alt="Amira's Picture"></td>
               <td><a href="mailto:amirasofea@gmail.com">amirasofea@gmail.com</a></td>
               <td>1</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
-              <td>CL006</td>
-              <td>Kelvin Tan</td>
-              <td><a href="mailto:kelvintan@gmail.com">kelvintan@gmail.com</a></td>
-              <td>2</td>
-              <td><span class="badge bg-danger">Inactive</span></td>
-            </tr>
+            <!-- Add more clients here for a total of 20 -->
           </tbody>
         </table>
+
+        <!-- Last Appointment Details Section -->
+        <div class="client-section">
+          <h5>Last Appointment Details</h5>
+          <p><strong>Date and Time:</strong> 2025-07-20 10:00 AM</p>
+          <p><strong>Summary:</strong> Discussed stress management techniques.</p>
+          <a href="#" class="btn btn-link">View Full Session Log</a>
+        </div>
+
+        <!-- Health/Progress Notes Section -->
+        <div class="progress-notes-section">
+          <h5>Health/Progress Notes</h5>
+          <p><strong>Latest Note:</strong> Client is making steady progress with anxiety management.</p>
+          <textarea class="progress-notes-textarea" placeholder="Add or edit progress notes..."></textarea>
+          <button class="btn btn-primary mt-2">Save Progress Note</button>
+        </div>
+
       </div>
     </div>
   </div>
