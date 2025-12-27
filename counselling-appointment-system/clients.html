@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindCareHub - Clients</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- Sidebar (same as in the Dashboard) -->
+  <div class="d-flex">
+    <div class="sidebar p-3">
+      <div class="text-center mb-4">
+        <div class="avatar mx-auto mb-2">CA</div>
+        <h6 class="text-white mb-0">WELCOME</h6>
+        <h5 class="text-white fw-bold">ADMIN</h5>
+      </div>
+
+      <p class="text-secondary small mt-4">NAVIGATION</p>
+      <ul class="nav flex-column gap-1">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">
+            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="appointments.html">
+            <i class="bi bi-calendar-check me-2"></i> Appointments
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="clients.html">
+            <i class="bi bi-people me-2"></i> Clients
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="counselors.html">
+            <i class="bi bi-person-badge me-2"></i> Counselors
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="session_notes.html">
+            <i class="bi bi-file-earmark-text me-2"></i> Session Notes
+          </a>
+        </li>
+        <li class="nav-item mt-4">
+          <a class="nav-link text-danger" href="#" onclick="logout()">
+            <i class="bi bi-box-arrow-right me-2"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content flex-grow-1">
+      <div class="container-fluid p-4">
+        <h1 class="fw-bold mb-4">Clients</h1>
+
+        <!-- Table for Clients -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Client ID</th>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Appointment Count</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CL001</td>
+              <td>Nur Aina</td>
+              <td><a href="mailto:aina@gmail.com">aina@gmail.com</a></td>
+              <td>2</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>CL002</td>
+              <td>Jason Lim</td>
+              <td><a href="mailto:jasonlim@gmail.com">jasonlim@gmail.com</a></td>
+              <td>1</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>CL003</td>
+              <td>Siti Mariam</td>
+              <td><a href="mailto:siti.mariam@gmail.com">siti.mariam@gmail.com</a></td>
+              <td>4</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>CL004</td>
+              <td>Daniel Wong</td>
+              <td><a href="mailto:danielwong@gmail.com">danielwong@gmail.com</a></td>
+              <td>3</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>CL005</td>
+              <td>Amira Sofea</td>
+              <td><a href="mailto:amirasofea@gmail.com">amirasofea@gmail.com</a></td>
+              <td>1</td>
+              <td><span class="badge bg-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>CL006</td>
+              <td>Kelvin Tan</td>
+              <td><a href="mailto:kelvintan@gmail.com">kelvintan@gmail.com</a></td>
+              <td>2</td>
+              <td><span class="badge bg-danger">Blocked</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
