@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body style="background-color: #F5F5F5;"> <!-- Set background color as light grey -->
 
   <!-- Sidebar (same as in the Dashboard) -->
   <div class="d-flex">
-    <div class="sidebar p-3">
+    <div class="sidebar p-3" style="background-color: #4CAF50;">
       <div class="text-center mb-4">
         <div class="avatar mx-auto mb-2">CA</div>
         <h6 class="text-white mb-0">WELCOME</h6>
@@ -69,7 +69,7 @@
 
         <!-- Table for Clients -->
         <table class="table table-striped">
-          <thead>
+          <thead style="background-color: #2196F3; color: white;">
             <tr>
               <th>Client ID</th>
               <th>Name</th>
@@ -79,42 +79,42 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr style="background-color: #FFFFFF;">
               <td>CL001</td>
               <td>Nur Aina</td>
               <td><a href="mailto:aina@gmail.com">aina@gmail.com</a></td>
               <td>2</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #F1F1F1;">
               <td>CL002</td>
               <td>Jason Lim</td>
               <td><a href="mailto:jasonlim@gmail.com">jasonlim@gmail.com</a></td>
               <td>1</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #FFFFFF;">
               <td>CL003</td>
               <td>Siti Mariam</td>
               <td><a href="mailto:siti.mariam@gmail.com">siti.mariam@gmail.com</a></td>
               <td>4</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #F1F1F1;">
               <td>CL004</td>
               <td>Daniel Wong</td>
               <td><a href="mailto:danielwong@gmail.com">danielwong@gmail.com</a></td>
               <td>3</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #FFFFFF;">
               <td>CL005</td>
               <td>Amira Sofea</td>
               <td><a href="mailto:amirasofea@gmail.com">amirasofea@gmail.com</a></td>
               <td>1</td>
               <td><span class="badge bg-success">Active</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #F1F1F1;">
               <td>CL006</td>
               <td>Kelvin Tan</td>
               <td><a href="mailto:kelvintan@gmail.com">kelvintan@gmail.com</a></td>
@@ -126,6 +126,44 @@
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="text-white" style="background-color: #2196F3;">
+    <div class="container py-4">
+      <div class="row">
+        <!-- Left side -->
+        <div class="col-md-4">
+          <h5>MindCareHub</h5>
+          <p class="small">© 2025 MindCareHub. All rights reserved.</p>
+          <p class="small">Your trusted source for quality mental health support.</p>
+        </div>
+
+        <!-- Center -->
+        <div class="col-md-4 text-center">
+          <a href="dashboard.html" class="text-white">Dashboard</a> | 
+          <a href="appointments.html" class="text-white">Appointments</a> | 
+          <a href="clients.html" class="text-white">Clients</a> | 
+          <a href="counselors.html" class="text-white">Counselors</a> | 
+          <a href="session_notes.html" class="text-white">Session Notes</a>
+        </div>
+
+        <!-- Right side -->
+        <div class="col-md-4 text-end">
+          <a href="https://www.instagram.com" target="_blank" class="text-white me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="text-white me-3">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" class="text-white">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <br>
+          <p class="small mt-2">mindcarehub@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
