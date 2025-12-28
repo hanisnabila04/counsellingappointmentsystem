@@ -15,251 +15,372 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-  <style>
-    /* General Page Styles */
-    body {
-      background-color: #FFFFFF;
-      font-family: 'Roboto', sans-serif;
-      color: #333333;
-    }
 
-    /* Navigation Bar */
-    .navbar {
-      background-color: #FFFFFF;
-    }
+<style>
+  /* General Page Styles */
+  body {
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+  }
 
-    .navbar-nav .nav-link {
-      font-weight: bold;
-      color: #333333;
-    }
+  /* Navigation Bar */
+  .navbar {
+    background-color: #FFFFFF;
+  }
 
-    .navbar-nav .nav-link.active {
-      background-color: #bddeb1;
-      color: #FFFFFF;
-    }
+  .navbar-nav .nav-link {
+    font-weight: bold;
+    color: #333333;
+  }
 
-    .navbar-brand {
-      font-weight: bold;
-      color: #333333;
-    }
+  .navbar-nav .nav-link.active {
+    background-color: #bddeb1;
+    color: #FFFFFF;
+  }
 
-    .nav-link:hover {
-      color: #bddeb1;
-    }
+  .navbar-brand {
+    font-weight: bold;
+    color: #333333;
+  }
 
-    /* Sidebar */
-    .sidebar {
-      background-color: #FFFFFF;
-      border-right: 1px solid #f1f1f1;
-    }
+  .nav-link:hover {
+    color: #bddeb1;
+  }
 
-    /* Sidebar wrapper sizing and collapsed state */
-    .sidebar {
-      width: 250px;
-      transition: width 0.25s ease, padding 0.25s ease;
-      position: relative;
-    }
+  /* Sidebar */
+  .sidebar {
+    background-color: #FFFFFF;
+    border-right: 1px solid #f1f1f1;
+    width: 250px;
+    transition: width 0.25s ease, padding 0.25s ease;
+    position: relative;
+  }
 
-    .sidebar.collapsed {
-      width: 60px;
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-    }
+  .sidebar.collapsed {
+    width: 60px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    text-align: center;
+  }
 
-    /* Hide text labels when collapsed, keep icons visible */
-    .sidebar .label {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 8px;
-    }
+  .sidebar .label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
 
-    .sidebar.collapsed .label {
-      display: none;
-    }
+  .sidebar.collapsed .label {
+    display: none;
+  }
 
-    /* Small toggle button (hamburger) placed on the right edge of the sidebar */
-    .sidebar-toggle-btn {
-      position: absolute;
-      right: -18px;
-      top: 20px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      z-index: 20;
-    }
+  .sidebar-toggle-btn {
+    position: absolute;
+    right: -18px;
+    top: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    z-index: 20;
+  }
 
-    /* When collapsed hide textual content but keep icons visible */
-    .sidebar.collapsed {
-      text-align: center;
-    }
+  .profile-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    /* Profile icon (single large one above welcome/admin) */
-    .profile-icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .profile-icons .profile-icon {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    line-height: 0;
+  }
 
-    .profile-icons .profile-icon {
-      width: 64px;
-      height: 64px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f1f1f1;
-      color: #333;
-      font-size: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      line-height: 0;
-    }
+  .profile-icons .profile-icon:focus {
+    outline: 2px solid #bddeb1;
+    outline-offset: 2px;
+  }
 
-    .profile-icons .profile-icon:focus {
-      outline: 2px solid #bddeb1;
-      outline-offset: 2px;
-    }
+  .sidebar.collapsed .profile-icons {
+    display: none;
+  }
 
-    /* hide profile icon when collapsed */
-    .sidebar.collapsed .profile-icons {
-      display: none;
-    }
+  .sidebar .nav-link i {
+    font-size: 1.1rem;
+    width: 28px;
+    text-align: center;
+  }
 
-    .sidebar .nav-link i {
-      font-size: 1.1rem;
-      width: 28px;
-      text-align: center;
-    }
+  .sidebar.collapsed .text-center h6,
+  .sidebar.collapsed .text-center h5,
+  .sidebar.collapsed .text-secondary,
+  .sidebar.collapsed .avatar {
+    display: none;
+  }
 
-    /* Hide header labels and helper text when collapsed */
-    .sidebar.collapsed .text-center h6,
-    .sidebar.collapsed .text-center h5,
-    .sidebar.collapsed .text-secondary,
-    .sidebar.collapsed .avatar {
-      display: none;
-    }
+  .sidebar.collapsed .nav {
+    align-items: center;
+  }
 
-    /* When collapsed center icons horizontally and vertically in the small left column */
-    .sidebar.collapsed .nav {
-      align-items: center;
-    }
+  .sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
 
-    .sidebar.collapsed .nav-link {
-      justify-content: center;
-      padding-left: 0.25rem !important;
-      padding-right: 0.25rem !important;
-    }
+  .sidebar.collapsed .sidebar-toggle-btn {
+    top: 12px;
+    transform: none;
+    right: -18px;
+  }
 
-    /* Move the toggle button to the vertical center when collapsed */
-    .sidebar.collapsed .sidebar-toggle-btn {
-      /* keep toggle at the top when collapsed */
-      top: 12px;
-      transform: none;
-      right: -18px;
-    }
+  .sidebar .nav-link {
+    font-weight: bold;
+    color: #333333;
+  }
 
-    .sidebar .nav-link {
-      font-weight: bold;
-      color: #333333;
-    }
+  .sidebar .nav-link:hover {
+    color: #bddeb1;
+  }
 
-    .sidebar .nav-link:hover {
-      color: #bddeb1;
-    }
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
 
-    /* Table Styles */
-    table {
-      width: 100%;
-      margin-top: 20px;
-    }
+  th {
+    background-color: #bddeb1;
+    color: white;
+  }
 
-    th {
-      background-color: #bddeb1;
-      color: white;
-    }
+  td {
+    background-color: #FFFFFF;
+  }
 
-    td {
-      background-color: #FFFFFF;
-    }
+  tr:nth-child(even) td {
+    background-color: #f9f9f9;
+  }
 
-    tr:nth-child(even) td {
-      background-color: #f9f9f9;
-    }
+  footer {
+    background-color: #bddeb1;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+  }
 
-    /* Footer */
-    footer {
-      background-color: #bddeb1;
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-    }
+  footer h5 {
+    font-weight: bold;
+  }
 
-    footer h5 {
-      font-weight: bold;
-    }
+  footer p {
+    font-weight: 300;
+    font-size: 14px;
+  }
 
-    footer p {
-      font-weight: 300;
-      font-size: 14px;
-    }
+  footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+  }
 
-    footer .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 20px;
-    }
+  footer .social-icons a:hover {
+    color: #333333;
+  }
 
-    footer .social-icons a:hover {
-      color: #333333;
-    }
+  .modal-content {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
 
-    /* Modal Styles */
-    .modal-content {
-      background-color: #f9f9f9;
-      border-radius: 10px;
-    }
+  .modal-header {
+    background-color: #bddeb1;
+    color: white;
+    font-weight: bold;
+  }
 
-    .modal-header {
-      background-color: #bddeb1;
-      color: white;
-      font-weight: bold;
-    }
+  .modal-footer {
+    background-color: #f9f9f9;
+  }
 
-    .modal-footer {
-      background-color: #f9f9f9;
-    }
+  .client-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-    /* New Section Styles */
-    .client-section {
-      background-color: #f7f7f7;
-      padding: 20px;
-      margin-top: 30px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  .progress-notes-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-    .progress-notes-section {
-      background-color: #fff;
-      padding: 20px;
-      margin-top: 30px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  .progress-notes-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
 
-    .progress-notes-textarea {
-      width: 100%;
-      height: 100px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      font-size: 14px;
-    }
+  /* ========================= PROFILE SECTION STYLES ========================= */
+  .hidden-section {
+    display: none !important;
+  }
 
-  </style>
+  #profileSection {
+    margin-top: 20px;
+  }
+
+  .profile-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .profile-header p {
+    margin-top: 6px;
+    color: #6b7280;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .profile-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .profile-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.05);
+  }
+
+  .profile-avatar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 999px;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #dbeafe;
+  }
+
+  .avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .role-tag {
+    margin-top: 6px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #ecfeff;
+    color: #155e75;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .profile-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .profile-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  .form-card h3 {
+    margin: 0 0 14px 0;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px 12px;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .form-footer {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
+
 </head>
 
 <body onload="requireLogin()">
@@ -271,6 +392,7 @@
       <button id="sidebarToggleBtn" class="btn btn-light sidebar-toggle-btn" aria-label="Toggle sidebar menu">
         <i id="sidebarToggleIcon" class="bi bi-list"></i>
       </button>
+
       <!-- Single large user profile icon -->
       <div class="profile-icons d-flex justify-content-center mb-3">
         <button class="profile-icon btn p-0" aria-label="User profile" title="User profile">
@@ -291,30 +413,35 @@
             <span class="label">Dashboard</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link d-flex align-items-center" href="appointments.html">
             <i class="bi bi-calendar-check"></i>
             <span class="label">Appointments</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link active d-flex align-items-center" href="clients.html">
             <i class="bi bi-people"></i>
             <span class="label">Clients</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link d-flex align-items-center" href="counselors.html">
             <i class="bi bi-person-badge"></i>
             <span class="label">Counselors</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link d-flex align-items-center" href="session_notes.html">
             <i class="bi bi-file-earmark-text"></i>
             <span class="label">Session Notes</span>
           </a>
         </li>
+
         <li class="nav-item mt-4">
           <a class="nav-link text-danger d-flex align-items-center" href="#" onclick="logout()">
             <i class="bi bi-box-arrow-right"></i>
@@ -343,12 +470,13 @@
           <div class="dropdown">
             <a class="btn btn-light dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
               data-bs-toggle="dropdown">
-              <span class="user-badge">AU</span>
-              <span class="fw-semibold">Admin User</span>
+              <span class="user-badge" id="topUserBadge">AU</span>
+              <span class="fw-semibold" id="topUserName">Admin User</span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profile</a></li>
+              <!-- ✅ Added id="menuProfile" ONLY -->
+              <li><a class="dropdown-item" href="#" id="menuProfile"><i class="bi bi-person me-2"></i> Profile</a></li>
               <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Settings</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -361,83 +489,173 @@
 
       <div class="container-fluid p-4">
 
-        <!-- Welcome Banner -->
-        <div class="welcome-card mb-4">
-          <h1 class="fw-bold mb-2 text-black">Welcome to MindCareHub Dashboard</h1>
-          <p class="text-black-50 mb-0">Manage appointments, clients, counselors and session activities.</p>
+        <!-- ================= DASHBOARD CONTENT (THIS WILL BE HIDDEN WHEN PROFILE OPENED) ================= -->
+        <div id="dashboardContent">
+          <!-- Welcome Banner -->
+          <div class="welcome-card mb-4">
+            <h1 class="fw-bold mb-2 text-black">Welcome to MindCareHub Dashboard</h1>
+            <p class="text-black-50 mb-0">Manage appointments, clients, counselors and session activities.</p>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div>
+                  <p class="text-muted mb-1">TOTAL CLIENTS</p>
+                  <h2 class="fw-bold mb-0">128</h2>
+                </div>
+                <div class="icon-box bg-soft-blue">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div>
+                  <p class="text-muted mb-1">TODAY'S APPOINTMENTS</p>
+                  <h2 class="fw-bold mb-0">12</h2>
+                </div>
+                <div class="icon-box bg-soft-green">
+                  <i class="bi bi-calendar-check-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div>
+                  <p class="text-muted mb-1">PENDING REQUESTS</p>
+                  <h2 class="fw-bold mb-0">6</h2>
+                </div>
+                <div class="icon-box bg-soft-orange">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart + Progress -->
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <div class="card shadow-sm border-0 rounded-4 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="fw-bold mb-0">Monthly Appointments</h5>
+                  <select class="form-select w-auto">
+                    <option>Year 2025</option>
+                    <option>Year 2024</option>
+                  </select>
+                </div>
+
+                <canvas id="appointmentsChart" height="120"></canvas>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card shadow-sm border-0 rounded-4 p-4 text-center">
+                <h5 class="fw-bold mb-3">Counselor Availability</h5>
+                <div class="progress-circle mx-auto mb-3">
+                  <div class="circle-text">
+                    <h3 class="fw-bold mb-0">72%</h3>
+                    <p class="text-muted small mb-0">Availability</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary w-100 rounded-pill">
+                  View Schedule
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- ================= END DASHBOARD CONTENT ================= -->
 
-        <!-- Stats Row -->
-        <div class="row g-4 mb-4">
-          <div class="col-md-4">
-            <div class="stat-card">
-              <div>
-                <p class="text-muted mb-1">TOTAL CLIENTS</p>
-                <h2 class="fw-bold mb-0">128</h2>
-              </div>
-              <div class="icon-box bg-soft-blue">
-                <i class="bi bi-people-fill"></i>
-              </div>
-            </div>
+        <!-- ================= PROFILE SECTION (HIDDEN INITIALLY) ================= -->
+        <section id="profileSection" class="hidden-section">
+          <div class="profile-header">
+            <h2>User Profile</h2>
+            <p>Update your personal information and account details.</p>
           </div>
 
-          <div class="col-md-4">
-            <div class="stat-card">
-              <div>
-                <p class="text-muted mb-1">TODAY'S APPOINTMENTS</p>
-                <h2 class="fw-bold mb-0">12</h2>
-              </div>
-              <div class="icon-box bg-soft-green">
-                <i class="bi bi-calendar-check-fill"></i>
-              </div>
-            </div>
-          </div>
+          <div class="profile-grid">
+            <!-- Left -->
+            <div class="profile-card">
+              <div class="profile-avatar-wrap">
+                <div class="avatar-circle">
+                  <img id="avatarPreview" src="" alt="Avatar" class="hidden-section">
+                  <span id="avatarFallback">AU</span>
+                </div>
 
-          <div class="col-md-4">
-            <div class="stat-card">
-              <div>
-                <p class="text-muted mb-1">PENDING REQUESTS</p>
-                <h2 class="fw-bold mb-0">6</h2>
-              </div>
-              <div class="icon-box bg-soft-orange">
-                <i class="bi bi-clock-history"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chart + Progress -->
-        <div class="row g-4">
-          <div class="col-lg-8">
-            <div class="card shadow-sm border-0 rounded-4 p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold mb-0">Monthly Appointments</h5>
-                <select class="form-select w-auto">
-                  <option>Year 2025</option>
-                  <option>Year 2024</option>
-                </select>
-              </div>
-
-              <canvas id="appointmentsChart" height="120"></canvas>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card shadow-sm border-0 rounded-4 p-4 text-center">
-              <h5 class="fw-bold mb-3">Counselor Availability</h5>
-              <div class="progress-circle mx-auto mb-3">
-                <div class="circle-text">
-                  <h3 class="fw-bold mb-0">72%</h3>
-                  <p class="text-muted small mb-0">Availability</p>
+                <div class="avatar-info">
+                  <h3 id="displayName">Admin User</h3>
+                  <span class="role-tag" id="displayRole">Super Admin</span>
                 </div>
               </div>
 
-              <button class="btn btn-primary w-100 rounded-pill">
-                View Schedule
-              </button>
+              <div class="profile-actions">
+                <label class="btn btn-primary">
+                  Change Avatar
+                  <input type="file" id="avatarInput" accept="image/*" hidden>
+                </label>
+                <button class="btn btn-outline-secondary" type="button" id="resetPassBtn">Reset Password</button>
+              </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="profile-card form-card">
+              <h3>Account Details</h3>
+
+              <form id="profileForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" id="email" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Role</label>
+                    <select id="role">
+                      <option value="Super Admin">Super Admin</option>
+                      <option value="Admin">Admin</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" id="phone">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Bio</label>
+                  <textarea id="bio" rows="4"></textarea>
+                </div>
+
+                <div class="form-footer">
+                  <button type="submit" class="btn btn-success">Save Changes</button>
+                  <button type="button" class="btn btn-outline-secondary ms-2" id="backToDashboardBtn">
+                    Back
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
+        </section>
+        <!-- ================= END PROFILE SECTION ================= -->
 
       </div>
     </div>
@@ -451,6 +669,119 @@
 
   <!-- Custom JS -->
   <script src="js/app.js"></script>
+
+  <!-- ✅ Profile Script (NEW) -->
+  <script>
+    const menuProfile = document.getElementById("menuProfile");
+    const profileSection = document.getElementById("profileSection");
+    const dashboardContent = document.getElementById("dashboardContent");
+    const backToDashboardBtn = document.getElementById("backToDashboardBtn");
+
+    const topUserName = document.getElementById("topUserName");
+    const topUserBadge = document.getElementById("topUserBadge");
+
+    const displayName = document.getElementById("displayName");
+    const displayRole = document.getElementById("displayRole");
+
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const email = document.getElementById("email");
+    const role = document.getElementById("role");
+    const phone = document.getElementById("phone");
+    const bio = document.getElementById("bio");
+
+    const profileForm = document.getElementById("profileForm");
+
+    const avatarInput = document.getElementById("avatarInput");
+    const avatarPreview = document.getElementById("avatarPreview");
+    const avatarFallback = document.getElementById("avatarFallback");
+
+    const resetPassBtn = document.getElementById("resetPassBtn");
+
+    // ✅ Default user object (replace with your backend data)
+    const currentUser = {
+      firstName: "Admin",
+      lastName: "User",
+      email: "admin@mindcarehub.com",
+      role: "Super Admin",
+      phone: "+60 12-345 6789",
+      bio: "Managing appointments and counselor schedules."
+    };
+
+    function getInitials(fn, ln) {
+      return (fn?.charAt(0) || "A").toUpperCase() + (ln?.charAt(0) || "U").toUpperCase();
+    }
+
+    function loadProfileData() {
+      firstName.value = currentUser.firstName;
+      lastName.value = currentUser.lastName;
+      email.value = currentUser.email;
+      role.value = currentUser.role;
+      phone.value = currentUser.phone;
+      bio.value = currentUser.bio;
+
+      displayName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+      displayRole.textContent = currentUser.role;
+
+      topUserName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+      topUserBadge.textContent = getInitials(currentUser.firstName, currentUser.lastName);
+
+      avatarFallback.textContent = getInitials(currentUser.firstName, currentUser.lastName);
+    }
+
+    function showProfile() {
+      dashboardContent.classList.add("hidden-section");
+      profileSection.classList.remove("hidden-section");
+      loadProfileData();
+    }
+
+    function showDashboard() {
+      profileSection.classList.add("hidden-section");
+      dashboardContent.classList.remove("hidden-section");
+    }
+
+    // ✅ Open profile from dropdown
+    menuProfile.addEventListener("click", function (e) {
+      e.preventDefault();
+      showProfile();
+    });
+
+    // ✅ Back to dashboard button
+    backToDashboardBtn.addEventListener("click", function () {
+      showDashboard();
+    });
+
+    // ✅ Save profile
+    profileForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      currentUser.firstName = firstName.value.trim();
+      currentUser.lastName = lastName.value.trim();
+      currentUser.email = email.value.trim();
+      currentUser.role = role.value;
+      currentUser.phone = phone.value.trim();
+      currentUser.bio = bio.value.trim();
+
+      loadProfileData();
+      alert("Profile updated successfully ✅");
+    });
+
+    // ✅ Avatar preview
+    avatarInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const url = URL.createObjectURL(file);
+      avatarPreview.src = url;
+      avatarPreview.classList.remove("hidden-section");
+      avatarFallback.classList.add("hidden-section");
+    });
+
+    // ✅ Reset password demo
+    resetPassBtn.addEventListener("click", function () {
+      alert("Reset password clicked ✅ (demo)");
+    });
+  </script>
 
   <!-- Logout Confirmation Modal -->
   <div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-labelledby="logoutConfirmLabel" aria-hidden="true">
@@ -470,6 +801,7 @@
       </div>
     </div>
   </div>
+
 </body>
 
 </html>
