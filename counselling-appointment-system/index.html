@@ -5,39 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | Counselling Appointment System</title>
 
+  <!-- ✅ Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
 
-  <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-    <div class="card card-shadow p-4" style="max-width: 420px; width: 100%;">
-      <div class="text-center mb-3">
-        <h3 class="fw-bold"> MindCareHub </h3>
-        <p class="text-muted mb-0">Counselling Appointment System</p>
+  <!-- ✅ Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- ✅ Your CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ✅ ADDED ONLY: Green-focused moving RGB gradient (warm tones included) -->
+  <style>
+    /* ✅ RGB gradient text focused on green + warm tones */
+    .brand-rgb {
+      font-weight: 800;
+      background: linear-gradient(
+        90deg,
+        rgb(34, 197, 94),    /* green */
+        rgb(16, 185, 129),   /* teal */
+        rgb(59, 130, 246),   /* soft blue */
+        rgb(245, 158, 11),   /* warm amber */
+        rgb(244, 63, 94),    /* warm pink/red */
+        rgb(34, 197, 94)     /* green again */
+      );
+
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: rgbMove 4s ease-in-out infinite;
+    }
+
+    /* ✅ Gradient movement animation */
+    @keyframes rgbMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ✅ Optional: soft glow effect (very light, counselling-friendly) */
+    .brand-rgb {
+      filter: drop-shadow(0px 4px 10px rgba(16, 185, 129, 0.20));
+    }
+  </style>
+</head>
+
+<body class="bg-soft">
+
+  <!-- ✅ Bootstrap layout wrapper -->
+  <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+
+    <!-- ✅ Bootstrap Row -->
+    <div class="row w-100 justify-content-center align-items-center g-4" style="max-width: 900px;">
+
+      <!-- ✅ LEFT: Counseling intro panel -->
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="p-4 p-xl-5 text-dark rounded-4 shadow-sm bg-white border">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-badge me-3">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div>
+              <h4 class="mb-0 fw-bold brand-rgb">MindCareHub</h4>
+              <small class="text-muted">Counselling Appointment System</small>
+            </div>
+          </div>
+
+          <h2 class="fw-bold mt-4">A safe space to talk.</h2>
+          <p class="text-muted mb-4">
+            Manage counselling appointments, schedules, and secure client access with comfort & clarity.
+          </p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-shield-check text-success fs-5 me-3"></i>
+              <span class="text-muted">Secure access & privacy protection</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar2-check text-primary fs-5 me-3"></i>
+              <span class="text-muted">Easy appointment scheduling</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-chat-dots text-warning fs-5 me-3"></i>
+              <span class="text-muted">Support-focused experience</span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <form id="loginForm" novalidate>
-        <div class="mb-3">
-          <label class="form-label">USERNAME</label>
-          <input type="text" class="form-control" id="username" placeholder="admin" required>
-          <div class="invalid-feedback">Please enter a valid username.</div>
-        </div>
+      <!-- ✅ RIGHT: Login Card -->
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
 
-        <div class="mb-3">
-          <label class="form-label">PASSWORD</label>
-          <input type="password" class="form-control" id="password" placeholder="12345" minlength="5" required>
-          <div class="invalid-feedback">Password must be at least 5 characters.</div>
-        </div>
+          <!-- ✅ Header -->
+          <div class="text-center mb-4">
+            <div class="mx-auto mb-3 login-icon">
+              <i class="bi bi-person-heart"></i>
+            </div>
 
-        <button class="btn btn-primary w-100" type="submit">Login</button>
-      </form>
+            <h3 class="fw-bold mb-1 brand-rgb"> MindCareHub </h3>
+            <p class="text-muted mb-0">Counselling Appointment System</p>
+          </div>
+
+          <!-- ✅ Login Form -->
+          <form id="loginForm" novalidate>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-uppercase small">Username</label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-white">
+                  <i class="bi bi-person"></i>
+                </span>
+
+                <input type="text" class="form-control" id="username" placeholder="admin" required>
+              </div>
+
+              <div class="invalid-feedback">Please enter a valid username.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-uppercase small">Password</label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-white">
+                  <i class="bi bi-key"></i>
+                </span>
+
+                <input type="password" class="form-control" id="password" placeholder="12345" minlength="5" required>
+
+                <button class="btn btn-outline-secondary" type="button" id="togglePass">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+
+              <div class="invalid-feedback">Password must be at least 5 characters.</div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label text-muted" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+
+              <a href="#" class="text-decoration-none small link-soft">Forgot password?</a>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2 fw-semibold rounded-3" type="submit">
+              <i class="bi bi-box-arrow-in-right me-2"></i> Login
+            </button>
+
+            <p class="text-center text-muted small mt-4 mb-0">
+              Need help? Contact the administrator.
+            </p>
+          </form>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- ✅ Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
 
+  <!-- ✅ Login validation logic -->
   <script>
     const form = document.getElementById("loginForm");
 
@@ -58,5 +194,22 @@
       }
     });
   </script>
+
+  <!-- ✅ Show/Hide Password Script -->
+  <script>
+    const togglePass = document.getElementById("togglePass");
+    const passwordInput = document.getElementById("password");
+
+    if (togglePass && passwordInput) {
+      togglePass.addEventListener("click", () => {
+        const isHidden = passwordInput.type === "password";
+        passwordInput.type = isHidden ? "text" : "password";
+        togglePass.innerHTML = isHidden
+          ? '<i class="bi bi-eye-slash"></i>'
+          : '<i class="bi bi-eye"></i>';
+      });
+    }
+  </script>
+
 </body>
 </html>
