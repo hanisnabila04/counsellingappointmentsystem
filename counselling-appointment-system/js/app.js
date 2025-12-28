@@ -6,9 +6,31 @@ function requireLogin() {
   }
 }
 
-function logout() {
+function performLogout() {
+  // actual logout action
   localStorage.removeItem("isLoggedIn");
-  window.location.href = "menu.html";
+  // redirect to login (index.html)
+  window.location.href = "index.html";
+}
+
+function logout() {
+  // If a modal exists on the page, show confirmation modal. Otherwise, perform logout immediately.
+  const modalEl = document.getElementById('logoutConfirmModal');
+  if (modalEl && typeof bootstrap !== 'undefined') {
+    const bsModal = new bootstrap.Modal(modalEl);
+    bsModal.show();
+    // attach confirm handler (idempotent)
+    const confirmBtn = modalEl.querySelector('#confirmLogoutBtn');
+    if (confirmBtn && !confirmBtn.dataset.listenerAttached) {
+      confirmBtn.addEventListener('click', function () {
+        bsModal.hide();
+        performLogout();
+      });
+      confirmBtn.dataset.listenerAttached = 'true';
+    }
+  } else {
+    performLogout();
+  }
 }
 
 // ===== Counsellor Profiles (5+) =====
