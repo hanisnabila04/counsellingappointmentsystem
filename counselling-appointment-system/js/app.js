@@ -2,7 +2,7 @@
 function requireLogin() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   if (!isLoggedIn) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 }
 
@@ -85,6 +85,59 @@ function loadCounsellorProfile() {
   document.getElementById("cBio").textContent = counsellor.bio;
 }
 
+
+// ===== Sidebar collapse/expand (desktop) =====
+(function () {
+  const STORAGE_KEY = 'sidebar-collapsed';
+
+  function initSidebarToggle() {
+    const sidebar = document.getElementById('sidebarWrapper');
+    const btn = document.getElementById('sidebarToggleBtn');
+    const icon = document.getElementById('sidebarToggleIcon');
+
+    if (!sidebar || !btn || !icon) return;
+
+    // Initialize from storage
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'true') {
+      sidebar.classList.add('collapsed');
+      // keep the hamburger icon (bi-list) even when collapsed
+      icon.classList.remove('bi-x');
+      icon.classList.add('bi-list');
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      sidebar.classList.remove('collapsed');
+      icon.classList.remove('bi-x');
+      icon.classList.add('bi-list');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    // Toggle handler
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isCollapsed = sidebar.classList.toggle('collapsed');
+
+      if (isCollapsed) {
+        // keep the hamburger icon visible when collapsed (no X)
+        icon.classList.remove('bi-x');
+        icon.classList.add('bi-list');
+        btn.setAttribute('aria-expanded', 'false');
+        localStorage.setItem(STORAGE_KEY, 'true');
+      } else {
+        icon.classList.remove('bi-x');
+        icon.classList.add('bi-list');
+        btn.setAttribute('aria-expanded', 'true');
+        localStorage.setItem(STORAGE_KEY, 'false');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarToggle);
+  } else {
+    initSidebarToggle();
+  }
+})();
 
 // Sidebar Toggle
 document.getElementById("toggleSidebar")?.addEventListener("click", function () {
