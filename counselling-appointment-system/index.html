@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | Counselling appointment System</title>
 
   <!-- ✅ Bootstrap CSS -->
@@ -20,22 +19,18 @@
     /* ✅ RGB gradient text focused on green + warm tones */
     .brand-rgb {
       font-weight: 800;
-      background: linear-gradient(90deg,
-          rgb(34, 197, 94),
-          /* green */
-          rgb(16, 185, 129),
-          /* teal */
-          rgb(59, 130, 246),
-          /* soft blue */
-          rgb(245, 158, 11),
-          /* warm amber */
-          rgb(244, 63, 94),
-          /* warm pink/red */
-          rgb(34, 197, 94)
-          /* green again */
-        );
+      background: linear-gradient(
+        90deg,
+        rgb(34, 197, 94),    /* green */
+        rgb(16, 185, 129),   /* teal */
+        rgb(59, 130, 246),   /* soft blue */
+        rgb(245, 158, 11),   /* warm amber */
+        rgb(244, 63, 94),    /* warm pink/red */
+        rgb(34, 197, 94)     /* green again */
+      );
 
       background-size: 300% 300%;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
@@ -44,17 +39,9 @@
 
     /* ✅ Gradient movement animation */
     @keyframes rgbMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* ✅ Optional: soft glow effect (very light, counselling-friendly) */
